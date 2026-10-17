@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StayAwake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StayAwake sends discreet vibration alerts to help you stay awake during classes, lectures and meetings.">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: #171717;
+            border-radius: 20px;
+            padding: 40px 32px;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: #facc15;
+        }
+
+        p {
+            margin-top: 16px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #b3b3b3;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .links {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .play-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: #facc15;
+            color: #000000;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .play-button img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .play-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.25);
+        }
+
+        .secondary-link {
+            text-decoration: none;
+            font-weight: 600;
+            color: #facc15;
+        }
+
+        .secondary-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 28px;
+            font-size: 0.85rem;
+            color: #888888;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="logo.png" alt="StayAwake logo" class="logo">
+
+    <h1>StayAwake</h1>
+
+    <p id="description">
+        Stay alert without drawing attention.
+        <span class="highlight">Discreet vibration alerts</span>
+        help you stay awake during classes, lectures and meetings.
+    </p>
+
+    <div class="links">
+
+        <a
+            class="play-button"
+            href="https://play.google.com/store/apps/details?id=com.montanhajr.stayawake"
+            target="_blank"
+            rel="noopener"
+        >
+            <img src="google-play.png" alt="Google Play">
+            <span id="download">Get it on Google Play</span>
+        </a>
+
+        <a class="secondary-link" href="privacy-policy.html" id="privacy">
+            Privacy Policy
+        </a>
+
+    </div>
+
+    <footer>
+        © 2026 MontanhaJr Dev
+    </footer>
+
+</div>
+
+<script>
+    const language = navigator.language.toLowerCase();
+
+    const translations = {
+        en: {
+            description: 'Stay alert without drawing attention. <span class="highlight">Discreet vibration alerts</span> help you stay awake during classes, lectures and meetings.',
+            download: 'Get it on Google Play',
+            privacy: 'Privacy Policy'
+        },
+        pt: {
+            description: 'Fique acordado sem chamar atenção. <span class="highlight">Alertas discretos por vibração</span> ajudam você a se manter atento durante aulas, palestras e reuniões.',
+            download: 'Baixar no Google Play',
+            privacy: 'Política de Privacidade'
+        },
+        es: {
+            description: 'Mantente despierto sin llamar la atención. <span class="highlight">Alertas discretas por vibración</span> te ayudan a mantenerte atento durante clases, conferencias y reuniones.',
+            download: 'Descargar en Google Play',
+            privacy: 'Política de privacidad'
+        }
+    };
+
+    const lang = language.startsWith('pt') ? 'pt'
+               : language.startsWith('es') ? 'es'
+               : 'en';
+
+    document.documentElement.lang =
+        lang === 'pt' ? 'pt-BR' : lang === 'es' ? 'es' : 'en';
+
+    document.getElementById('description').innerHTML =
+        translations[lang].description;
+
+    document.getElementById('download').textContent =
+        translations[lang].download;
+
+    document.getElementById('privacy').textContent =
+        translations[lang].privacy;
+
+    document.title = 'StayAwake';
+</script>
+
+</body>
+</html>
